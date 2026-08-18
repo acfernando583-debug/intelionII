@@ -1,5 +1,5 @@
-import { Button } from "./HeroParts";
 import { LogoIcon } from "./HeroParts";
+import { CtaButton } from "./Buttons";
 
 export function Footer() {
   return (
@@ -28,9 +28,7 @@ export function Footer() {
             <p className="text-white/60 text-base leading-snug max-w-sm mb-6">
               Diseño, instalación y mantenimiento de sistemas solares fotovoltaicos. Transformando el consumo energético de hogares, edificios e industria.
             </p>
-            <Button variant="primary" className="px-7 py-3 text-base">
-              Contactar
-            </Button>
+            <CtaButton text="Contactar" variant="orange" />
           </div>
           <div className="md:col-span-3 md:col-start-7">
             <h4 className="text-white font-semibold mb-4 text-sm tracking-wider uppercase">Navegación</h4>

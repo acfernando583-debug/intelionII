@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
-import { ArrowRight, Wand2, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
-import { GeometricPattern } from "./GeometricPattern";
+import { WordsPullUpMultiStyle } from "./TextReveal";
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Wand2, Zap, Shield, Globe, Award } from "lucide-react";
 
 const GALLERY_IMAGES = [
   "/images/gallery/gallery-01.jpg",
@@ -16,191 +17,265 @@ export function InfoSection() {
   const { ref, inView } = useInViewAnimation();
   const [activeCard, setActiveCard] = useState("historia");
   const [selectedImage, setSelectedImage] = useState(0);
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 500], [0, -50]);
+
+  const aboutSegments = [
+    { text: "Innovando el", className: "font-normal" },
+    { text: "espíritu", className: "text-primary font-serif italic" },
+    { text: "de la energía solar", className: "font-normal" }
+  ];
 
   return (
-    <section ref={ref} className="relative min-h-screen flex overflow-hidden bg-solar-dark">
-      <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-40"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260315_073750_51473149-4350-4920-ae24-c8214286f323.mp4"
+    <section ref={ref} className="relative min-h-screen flex overflow-hidden bg-black py-20">
+      {/* Animated background */}
+      <motion.div 
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{ y: bgY }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0f] to-black" />
+        <motion.div
+          className="absolute top-20 left-20 w-96 h-96 rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(222,219,200,0.08) 0%, transparent 70%)",
+            filter: "blur(60px)"
+          }}
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
         />
-        <div className="absolute inset-0 bg-solar-dark/60" />
-        <div className="absolute inset-0 pointer-events-none opacity-25">
-          <GeometricPattern type="diamond-grid" color="rgba(255,215,0,0.3)" size={100} />
-        </div>
-      </div>
+        <motion.div
+          className="absolute bottom-20 right-20 w-80 h-80 rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(222,219,200,0.05) 0%, transparent 70%)",
+            filter: "blur(60px)"
+          }}
+          animate={{
+            x: [0, -80, 0],
+            y: [0, 60, 0],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      </motion.div>
 
-      <div className="relative z-10 flex flex-col lg:flex-row w-full">
-        <div className="w-full lg:w-[52%] relative p-4 lg:p-6">
-          <div className="liquid-glass-strong absolute inset-4 lg:inset-6 rounded-3xl pointer-events-none" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 w-full">
+        {/* About card */}
+        <div className="bg-[#101010] rounded-3xl p-8 md:p-12 lg:p-16">
+          {/* Top label */}
+          <motion.div 
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-primary text-[10px] sm:text-xs tracking-widest uppercase">Visual arts</span>
+          </motion.div>
 
-          <div className="relative h-full flex flex-col">
-            <nav className="flex items-center justify-between px-6 py-5">
-              <div className="flex items-center gap-3">
-                <img src="/images/intelion-logo.png" alt="INTELION" className="w-8 h-8" />
-                <span className="text-xl font-medium tracking-tight text-white">INTELION</span>
-              </div>
-            </nav>
-
-            <div className="flex-1 flex flex-col items-center justify-center px-8 py-12">
-              <div className={`mb-8 ${inView ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: "0.1s" }}>
-                <img src="/images/intelion-logo.png" alt="INTELION" className="w-20 h-20 mx-auto" />
-              </div>
-
-              <h1
-                className={`text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-center mb-6 tracking-tight ${inView ? "animate-fade-in-up" : "opacity-0"}`}
-                style={{ letterSpacing: "-0.05em", animationDelay: "0.2s" }}
-              >
-                <span className="text-gradient-animated">Innovando</span>{" "}
-                <span className="text-white">el</span>{" "}
-                <span className="italic text-white" style={{ fontFamily: "Noto Sans, system-ui, sans-serif" }}>
-                  espíritu
-                </span>{" "}
-                <span className="text-gradient-animated">de la energía solar</span>
-                <span className="typewriter-cursor h-[0.85em] align-middle text-solar-yellow" />
-              </h1>
-
-              <p
-                className={`text-white/70 text-center max-w-lg mb-8 leading-relaxed ${inView ? "animate-fade-in-up" : "opacity-0"}`}
-                style={{ animationDelay: "0.3s" }}
-              >
-                <span className="text-gradient-animated">INTELION</span> es una empresa especializada en el diseño, instalación y mantenimiento de sistemas de energía solar fotovoltaica, enfocada en brindar soluciones seguras, eficientes y personalizadas para hogares, edificios e industria.
-              </p>
-
-              <div className={`flex flex-wrap gap-3 mb-12 ${inView ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: "0.4s" }}>
-                <button
-                  onClick={() => setActiveCard("historia")}
-                  className={`liquid-glass px-6 py-3 rounded-full text-sm hover:scale-105 transition-transform font-medium ${activeCard === "historia" ? "text-solar-yellow border-solar-yellow/30" : "text-white/80"}`}
-                >
-                  Nuestra historia
-                </button>
-                <button
-                  onClick={() => setActiveCard("soluciones")}
-                  className={`liquid-glass px-6 py-3 rounded-full text-sm hover:scale-105 transition-transform font-medium ${activeCard === "soluciones" ? "text-solar-yellow border-solar-yellow/30" : "text-white/80"}`}
-                >
-                  Soluciones
-                </button>
-                <button
-                  onClick={() => setActiveCard("tecnologia")}
-                  className={`liquid-glass px-6 py-3 rounded-full text-sm hover:scale-105 transition-transform font-medium ${activeCard === "tecnologia" ? "text-solar-yellow border-solar-yellow/30" : "text-white/80"}`}
-                >
-                  Tecnología
-                </button>
-              </div>
-
-              <div className={`text-center ${inView ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: "0.5s" }}>
-                <p className="text-xs tracking-widest uppercase text-solar-yellow mb-3">QUIÉNES SOMOS</p>
-                <p className="text-white/70 italic max-w-md mx-auto" style={{ fontFamily: "Noto Sans, system-ui, sans-serif" }}>
-                  Transformando el futuro energético con innovación, tecnología y compromiso sostenible.
-                </p>
-                <div className="flex items-center justify-center gap-4 mt-4">
-                  <span className="h-px w-8 bg-solar-yellow/40" />
-                  <span className="text-xs text-gradient-animated tracking-wider">INTELION</span>
-                  <span className="h-px w-8 bg-solar-yellow/40" />
-                </div>
-              </div>
-            </div>
+          {/* Main heading with WordsPullUpMultiStyle */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-3xl mx-auto leading-[0.95] sm:leading-[0.9]">
+              <WordsPullUpMultiStyle segments={aboutSegments} />
+            </h2>
           </div>
-        </div>
 
-        <div className="hidden lg:flex w-[48%] flex-col p-6 gap-4">
-          <div className="liquid-glass flex-1 p-6 rounded-3xl flex flex-col justify-center transition-all duration-500">
-            <div className="relative w-full rounded-2xl overflow-hidden mb-4 group">
-              <img
-                src={GALLERY_IMAGES[selectedImage]}
-                alt={`Galería imagen ${selectedImage + 1}`}
-                className="w-full h-72 object-cover transition-all duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-solar-dark/70 via-solar-dark/20 to-transparent transition-opacity duration-500 group-hover:opacity-80" />
-              <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl transition-all duration-500 group-hover:ring-solar-yellow/30" />
+          {/* Body paragraph with animated letters */}
+          <motion.div 
+            className="max-w-2xl mx-auto text-center"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          >
+            <p className="text-primary text-xs sm:text-sm md:text-base leading-relaxed">
+              INTELION es una empresa especializada en el diseño, instalación y mantenimiento de sistemas de energía solar fotovoltaica, enfocada en brindar soluciones seguras, eficientes y personalizadas para hogares, edificios e industria.
+            </p>
+          </motion.div>
 
-              <button
-                onClick={() => setSelectedImage((prev) => (prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1))}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => setSelectedImage((prev) => (prev === GALLERY_IMAGES.length - 1 ? 0 : prev + 1))}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-
-              <div className="absolute bottom-4 left-4 bg-solar-dark/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full border border-white/10">
-                {selectedImage + 1} / {GALLERY_IMAGES.length}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2">
-              {GALLERY_IMAGES.map((img, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedImage(idx)}
-                  className={`relative rounded-xl overflow-hidden transition-all duration-300 ${
-                    selectedImage === idx
-                      ? "ring-2 ring-solar-yellow opacity-100 scale-105"
-                      : "opacity-50 hover:opacity-100 hover:scale-105"
-                  }`}
-                >
+          {/* Gallery section */}
+          <div className="mt-16">
+            <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-6 lg:p-8">
+              {/* Main image with crossfade */}
+              <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-2xl overflow-hidden mb-6 group">
+                {GALLERY_IMAGES.map((img, idx) => (
                   <img
+                    key={idx}
                     src={img}
-                    alt={`Miniatura ${idx + 1}`}
-                    className="w-full h-16 object-cover"
-                    loading="lazy"
+                    alt={`Galería imagen ${idx + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                      selectedImage === idx 
+                        ? "opacity-100 scale-100" 
+                        : "opacity-0 scale-105"
+                    }`}
+                    loading={idx === selectedImage ? "eager" : "lazy"}
                   />
-                  {selectedImage === idx && (
-                    <div className="absolute inset-0 bg-solar-yellow/10" />
-                  )}
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Navigation */}
+                <button
+                  onClick={() => setSelectedImage((prev) => (prev === 0 ? GALLERY_IMAGES.length - 1 : prev - 1))}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/10 opacity-0 group-hover:opacity-100"
+                >
+                  <ChevronLeft className="w-5 h-5" />
                 </button>
-              ))}
-            </div>
-          </div>
+                <button
+                  onClick={() => setSelectedImage((prev) => (prev === GALLERY_IMAGES.length - 1 ? 0 : prev + 1))}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/10 opacity-0 group-hover:opacity-100"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
 
-          <div className="liquid-glass rounded-[2.5rem] p-5">
-            <div className="grid grid-cols-2 gap-4">
-              <button
-                onClick={() => setActiveCard("ecosistema")}
-                className={`liquid-glass rounded-3xl p-5 text-left hover:scale-105 transition-transform ${activeCard === "ecosistema" ? "ring-1 ring-solar-yellow/30" : ""}`}
-              >
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                  <Sparkles className="w-5 h-5 text-white" />
+                {/* Counter */}
+                <div className="absolute bottom-6 left-6 text-white/80 text-xs font-medium tracking-widest">
+                  {String(selectedImage + 1).padStart(2, '0')} / {String(GALLERY_IMAGES.length).padStart(2, '0')}
                 </div>
-                <h4 className="text-white font-medium mb-1">Nuestro ecosistema</h4>
-                <p className="text-white/50 text-xs">Diseño, instalación y mantenimiento</p>
-              </button>
-              <button
-                onClick={() => setActiveCard("compromiso")}
-                className={`liquid-glass rounded-3xl p-5 text-left hover:scale-105 transition-transform ${activeCard === "compromiso" ? "ring-1 ring-solar-yellow/30" : ""}`}
-              >
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                  <Wand2 className="w-5 h-5 text-white" />
-                </div>
-                <h4 className="text-white font-medium mb-1">Compromiso</h4>
-                <p className="text-white/50 text-xs">Resultados medibles y sostenibilidad</p>
-              </button>
-            </div>
-          </div>
+              </div>
 
-          <div className="liquid-glass rounded-3xl p-5 flex items-center gap-4">
-            <div className="w-24 h-16 rounded-xl bg-solar-dark/30 flex items-center justify-center overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-solar-yellow/20 to-solar-green/20 flex items-center justify-center">
-                <span className="text-2xl">⚡</span>
+              {/* Timeline indicator */}
+              <div className="flex items-center gap-3 mb-6">
+                {GALLERY_IMAGES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImage(idx)}
+                    className={`relative h-px flex-1 transition-all duration-500 ${
+                      selectedImage === idx 
+                        ? "bg-primary" 
+                        : "bg-white/20 hover:bg-white/40"
+                    }`}
+                  >
+                    <span className={`absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full transition-all duration-300 ${
+                      selectedImage === idx 
+                        ? "bg-primary scale-125" 
+                        : "bg-white/40 scale-100"
+                    }`} />
+                  </button>
+                ))}
+              </div>
+
+              {/* Thumbnails */}
+              <div className="flex gap-3">
+                {GALLERY_IMAGES.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImage(idx)}
+                    className={`relative flex-1 aspect-square rounded-xl overflow-hidden transition-all duration-300 ${
+                      selectedImage === idx
+                        ? "ring-1 ring-primary/60"
+                        : "opacity-40 hover:opacity-80"
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt={`Miniatura ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className={`absolute inset-0 transition-opacity duration-300 ${
+                      selectedImage === idx 
+                        ? "bg-primary/10 opacity-100" 
+                        : "bg-black/20 opacity-0 hover:opacity-100"
+                    }`} />
+                  </button>
+                ))}
               </div>
             </div>
-            <div className="flex-1">
-              <h4 className="text-white font-medium mb-1">Servicio</h4>
-              <p className="text-white/50 text-xs">Atención personalizada y cercana</p>
-            </div>
-            <button className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:scale-110 transition-transform">
-              <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
+
+          {/* Feature cards */}
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            <motion.button
+              onClick={() => setActiveCard("ecosistema")}
+              className={`relative rounded-2xl p-6 text-left transition-all duration-300 overflow-hidden group ${
+                activeCard === "ecosistema"
+                  ? "bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30"
+                  : "bg-white/5 border border-white/10 hover:bg-white/10"
+              }`}
+              whileHover={{ y: -5 }}
+            >
+              <div className="relative z-10">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
+                  activeCard === "ecosistema"
+                    ? "bg-primary text-black"
+                    : "bg-white/10 text-primary"
+                }`}>
+                  <Sparkles className="w-7 h-7" />
+                </div>
+                <h4 className="text-white font-semibold mb-2 text-base tracking-tight">Nuestro ecosistema</h4>
+                <p className="text-white/60 text-xs leading-relaxed">Diseño, instalación y mantenimiento</p>
+              </div>
+            </motion.button>
+
+            <motion.button
+              onClick={() => setActiveCard("compromiso")}
+              className={`relative rounded-2xl p-6 text-left transition-all duration-300 overflow-hidden group ${
+                activeCard === "compromiso"
+                  ? "bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30"
+                  : "bg-white/5 border border-white/10 hover:bg-white/10"
+              }`}
+              whileHover={{ y: -5 }}
+            >
+              <div className="relative z-10">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
+                  activeCard === "compromiso"
+                    ? "bg-primary text-black"
+                    : "bg-white/10 text-primary"
+                }`}>
+                  <Wand2 className="w-7 h-7" />
+                </div>
+                <h4 className="text-white font-semibold mb-2 text-base tracking-tight">Compromiso</h4>
+                <p className="text-white/60 text-xs leading-relaxed">Resultados medibles y sostenibilidad</p>
+              </div>
+            </motion.button>
+          </div>
+
+          {/* Service card */}
+          <motion.div
+            className="relative rounded-2xl p-6 bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group overflow-hidden mt-6"
+            whileHover={{ y: -5 }}
+          >
+            <div className="relative z-10 flex items-start gap-5">
+              <div className="w-24 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center overflow-hidden border border-white/10 flex-shrink-0">
+                <Zap className="w-8 h-8 text-primary" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-2">
+                  <h4 className="text-white font-semibold text-base tracking-tight">Servicio Premium</h4>
+                  <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-medium tracking-wider uppercase">Nuevo</span>
+                </div>
+                <p className="text-white/60 text-sm leading-relaxed mb-3">
+                  Atención personalizada y cercana con seguimiento 24/7. Nuestro equipo de expertos le acompaña en cada etapa del proyecto, desde el diagnóstico inicial hasta el monitoreo continuo.
+                </p>
+                <div className="flex items-center gap-4 text-xs text-white/40">
+                  <span className="flex items-center gap-1.5">
+                    <Shield className="w-3.5 h-3.5 text-primary" />
+                    Garantía extendida
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Globe className="w-3.5 h-3.5 text-primary" />
+                    Cobertura nacional
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Award className="w-3.5 h-3.5 text-primary" />
+                    Certificado
+                  </span>
+                </div>
+              </div>
+              <button className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 flex-shrink-0">
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -79,7 +79,7 @@ Se retira el componente `Button` (fondo crema) de `HeroParts.tsx` en favor del c
 círculo que gira -45°). `CtaButton` ya soporta variantes `dark` (píldora gris-900, para banda
 clara) y `orange` (píldora naranja, para CTAs de énfasis).
 
-Se mueve `CtaButton`/`TextRoll`/`LondonClock` de `BackedBySection.tsx` a un nuevo módulo
+Se mueve `CtaButton`/`TextRoll`/`LondonClock` de `Navbar.tsx` a un nuevo módulo
 compartido `src/components/Buttons.tsx`, importado desde `Navbar.tsx`, `BackedBySection.tsx`,
 `HeroParts.tsx`, `Footer.tsx`, `PartnerSection.tsx` y `BottomNav.tsx`. Se actualizan los usos de
 `Button` en esos últimos 4 archivos a `CtaButton` (variante `orange` para CTAs primarios, `dark`

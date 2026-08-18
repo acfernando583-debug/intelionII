@@ -1,5 +1,9 @@
-import { Navbar, HeroSection, QuoteSection } from "./components/HeroParts";
+import { Navbar } from "./components/Navbar";
+import { HeroSection } from "./components/HeroParts";
 import { InfoSection } from "./components/InfoSection";
+import { FeaturesSection } from "./components/FeaturesSection";
+import { GallerySection } from "./components/GallerySection";
+import { ServicesSection } from "./components/ServicesSection";
 import { BackedBySection } from "./components/BackedBySection";
 import { UseCasesSection } from "./components/UseCasesSection";
 import { PricingSection } from "./components/PricingSection";
@@ -12,13 +16,13 @@ import { BottomNav } from "./components/BottomNav";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="h-screen overflow-hidden flex flex-col relative">
-        <Navbar />
-        <HeroSection />
-      </div>
-      <QuoteSection />
+    <div className="min-h-screen bg-black">
+      <Navbar />
+      <HeroSection />
       <InfoSection />
+      <FeaturesSection />
+      <GallerySection />
+      <ServicesSection />
       <BackedBySection />
       <UseCasesSection />
       <PricingSection />

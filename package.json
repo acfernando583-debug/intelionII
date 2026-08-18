@@ -11,9 +11,11 @@
     "format": "prettier --write src"
   },
   "dependencies": {
+    "framer-motion": "^13.1.0",
     "lucide-react": "^1.29.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "shaders": "^3.1.455"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

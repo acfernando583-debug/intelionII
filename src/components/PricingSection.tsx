@@ -3,10 +3,10 @@ import { useInViewAnimation } from "../hooks/useInViewAnimation";
 import { GeometricPattern } from "./GeometricPattern";
 
 const STEP_COLORS = [
-  { soft: "rgba(255,183,77,0.25)", border: "rgba(255,183,77,0.6)", glow: "rgba(255,183,77,0.35)", shape: "60% 40% 70% 30% / 50% 60% 40% 50%", accent: "#FFB74D" },
-  { soft: "rgba(79,195,247,0.25)", border: "rgba(79,195,247,0.6)", glow: "rgba(79,195,247,0.35)", shape: "40% 60% 50% 50% / 60% 40% 60% 40%", accent: "#4FC3F7" },
-  { soft: "rgba(129,199,132,0.25)", border: "rgba(129,199,132,0.6)", glow: "rgba(129,199,132,0.35)", shape: "50% 50% 60% 40% / 40% 50% 50% 60%", accent: "#81C784" },
-  { soft: "rgba(149,117,205,0.25)", border: "rgba(149,117,205,0.6)", glow: "rgba(149,117,205,0.35)", shape: "55% 45% 45% 55% / 55% 45% 55% 45%", accent: "#9575CD" },
+  { soft: "rgba(242,101,34,0.25)", border: "rgba(242,101,34,0.6)", glow: "rgba(242,101,34,0.35)", shape: "60% 40% 70% 30% / 50% 60% 40% 50%", accent: "#F26522" },
+  { soft: "rgba(232,112,78,0.25)", border: "rgba(232,112,78,0.6)", glow: "rgba(232,112,78,0.35)", shape: "40% 60% 50% 50% / 60% 40% 60% 40%", accent: "#E8704E" },
+  { soft: "rgba(0,0,0,0.25)", border: "rgba(0,0,0,0.6)", glow: "rgba(0,0,0,0.35)", shape: "50% 50% 60% 40% / 40% 50% 50% 60%", accent: "#000000" },
+  { soft: "rgba(242,101,34,0.25)", border: "rgba(242,101,34,0.6)", glow: "rgba(242,101,34,0.35)", shape: "55% 45% 45% 55% / 55% 45% 55% 45%", accent: "#F26522" },
 ];
 
 const STEPS = [
@@ -42,24 +42,24 @@ export function PricingSection() {
 
   return (
     <section ref={ref} className="bg-white px-6 py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-solar-gray/50 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F5F5F5]/50 to-transparent pointer-events-none" />
       <div className="absolute inset-0 flex items-center justify-center opacity-15 pointer-events-none">
-        <GeometricPattern type="rect-grid" color="rgba(0,51,102,0.5)" size={100} />
+        <GeometricPattern type="rect-grid" color="rgba(0,0,0,0.5)" size={100} />
       </div>
       <div className="max-w-[88rem] mx-auto relative">
         <div className="mb-20">
           <div className={`inline-block mb-4 ${inView ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: "0.1s" }}>
-            <span className="text-solar-yellow text-sm font-semibold tracking-wider uppercase">Proceso</span>
+            <span className="text-[#F26522] text-sm font-semibold tracking-wider uppercase">Proceso</span>
           </div>
           <h2
-            className={`text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-solar-dark tracking-tight mb-6 ${inView ? "animate-fade-in-up" : "opacity-0"}`}
+            className={`text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-gray-900 tracking-tight mb-6 ${inView ? "animate-fade-in-up" : "opacity-0"}`}
             style={{ animationDelay: "0.15s" }}
           >
             Cómo desarrollamos<br />
-            <span className="text-gradient">su proyecto</span>
+            <span className="text-[#F26522]">su proyecto</span>
           </h2>
           <p
-            className={`text-solar-dark/60 text-base md:text-lg leading-relaxed max-w-2xl ${inView ? "animate-fade-in-up" : "opacity-0"}`}
+            className={`text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl ${inView ? "animate-fade-in-up" : "opacity-0"}`}
             style={{ animationDelay: "0.25s" }}
           >
             Un solo aliado para todo el ciclo de su sistema solar, desde el análisis inicial hasta la operación y mantenimiento continuo.
@@ -71,14 +71,14 @@ export function PricingSection() {
           onMouseLeave={() => setIsHovering(false)}
         >
           <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 26 22 C 50 4, 50 4, 74 22" fill="none" stroke="#FFB74D" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.7s" }} />
-            <path d="M 76 32 C 94 52, 68 58, 24 76" fill="none" stroke="#4FC3F7" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.9s" }} />
-            <path d="M 26 78 C 50 96, 50 96, 74 78" fill="none" stroke="#81C784" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "1.1s" }} />
+            <path d="M 26 22 C 50 4, 50 4, 74 22" fill="none" stroke="#F26522" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.7s" }} />
+            <path d="M 76 32 C 94 52, 68 58, 24 76" fill="none" stroke="#E8704E" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.9s" }} />
+            <path d="M 26 78 C 50 96, 50 96, 74 78" fill="none" stroke="#000000" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "1.1s" }} />
           </svg>
           <svg className="absolute inset-0 w-full h-full pointer-events-none md:hidden" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 50 16 C 68 28, 68 36, 50 42" fill="none" stroke="#FFB74D" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.7s" }} />
-            <path d="M 50 56 C 68 62, 68 66, 50 76" fill="none" stroke="#4FC3F7" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.9s" }} />
-            <path d="M 50 80 C 68 86, 68 90, 50 96" fill="none" stroke="#81C784" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "1.1s" }} />
+            <path d="M 50 16 C 68 28, 68 36, 50 42" fill="none" stroke="#F26522" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.7s" }} />
+            <path d="M 50 56 C 68 62, 68 66, 50 76" fill="none" stroke="#E8704E" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "0.9s" }} />
+            <path d="M 50 80 C 68 86, 68 90, 50 96" fill="none" stroke="#000000" strokeWidth="0.6" strokeLinecap="round" className="connector-line" style={{ animationDelay: "1.1s" }} />
           </svg>
           {/* Desktop wave dots (2-col grid) */}
           <div className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 50 }}>
@@ -163,12 +163,12 @@ export function PricingSection() {
                       </div>
                     </div>
                     <h3
-                      className="text-solar-dark text-xl md:text-2xl font-medium mb-4 transition-all duration-500"
+                      className="text-gray-900 text-xl md:text-2xl font-medium mb-4 transition-all duration-500"
                     >
                       {step.title}
                     </h3>
                     <p
-                      className="text-solar-dark/60 text-base leading-relaxed transition-all duration-500 max-w-[90%]"
+                      className="text-gray-600 text-base leading-relaxed transition-all duration-500 max-w-[90%]"
                     >
                       {step.description}
                     </p>

@@ -9,7 +9,7 @@ interface TypewriterOptions {
 export function useTypewriter(words: string[], options: TypewriterOptions = {}) {
   const { typeSpeed = 90, deleteSpeed = 45, pauseDuration = 2200 } = options;
   const [wordIndex, setWordIndex] = useState(0);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(() => words[0] ?? "");
   const [phase, setPhase] = useState<"typing" | "deleting">("typing");
 
   useEffect(() => {
@@ -17,7 +17,6 @@ export function useTypewriter(words: string[], options: TypewriterOptions = {}) 
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (prefersReducedMotion) {
-      setText(words[0] ?? "");
       return;
     }
 
@@ -42,8 +41,10 @@ export function useTypewriter(words: string[], options: TypewriterOptions = {}) 
       );
       return () => clearTimeout(t);
     }
-    setWordIndex((i) => (i + 1) % words.length);
-    setPhase("typing");
+    requestAnimationFrame(() => {
+      setWordIndex((i) => (i + 1) % words.length);
+      setPhase("typing");
+    });
   }, [text, phase, wordIndex, words, typeSpeed, deleteSpeed, pauseDuration]);
 
   return text;

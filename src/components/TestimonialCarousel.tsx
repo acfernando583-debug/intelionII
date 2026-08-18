@@ -100,7 +100,7 @@ export function TestimonialCarousel() {
   };
 
   return (
-    <section ref={ref} className="bg-solar-gray px-6 py-24 relative overflow-hidden">
+    <section ref={ref} className="bg-[#F5F5F5] px-6 py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
       <div className="max-w-[88rem] mx-auto relative">
         <div className="flex items-end justify-between mb-16">
@@ -109,10 +109,10 @@ export function TestimonialCarousel() {
             style={{ animationDelay: "0.1s" }}
           >
             <div className="inline-block mb-4">
-              <span className="text-solar-yellow text-sm font-semibold tracking-wider uppercase">Tecnología</span>
+              <span className="text-[#F26522] text-sm font-semibold tracking-wider uppercase">Tecnología</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-solar-dark tracking-tight">
-              Nuestra <span className="font-serif text-gradient" style={{ fontFamily: "Noto Sans, system-ui, sans-serif" }}>tecnología</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-gray-900 tracking-tight">
+              Nuestra <span className="font-medium text-[#F26522]" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>tecnología</span>
             </h2>
           </div>
         </div>
@@ -139,22 +139,22 @@ export function TestimonialCarousel() {
                   className="w-full md:w-[427.5px] flex-shrink-0 px-3"
                 >
                   <div className="bg-white rounded-[32px] md:rounded-[40px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] p-8 h-full card-hover relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-solar-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#F26522]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div
                       className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                       style={{ backgroundImage: `url(${p.image})` }}
                     />
                     <div className="relative z-10">
-                      <div className="w-16 h-16 rounded-2xl bg-solar-gray flex items-center justify-center mb-6 group-hover:bg-solar-yellow/10 transition-colors duration-300">
+                      <div className="w-16 h-16 rounded-2xl bg-[#F5F5F5] flex items-center justify-center mb-6 group-hover:bg-[#F26522]/10 transition-colors duration-300">
                         <p.Icon
-                          className="w-7 h-7 text-solar-dark transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
+                          className="w-7 h-7 text-gray-900 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
                           strokeWidth={1.75}
                         />
                       </div>
-                      <h3 className="text-xl font-semibold text-solar-dark mb-3">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
                         {p.title}
                       </h3>
-                      <p className="text-solar-dark/60 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed">
                         {p.description}
                       </p>
                     </div>
@@ -166,15 +166,15 @@ export function TestimonialCarousel() {
           <div className="flex gap-3 mt-10">
             <button
               onClick={handlePrev}
-              className="w-14 h-14 rounded-full border border-solar-dark/10 flex items-center justify-center hover:bg-solar-dark hover:text-white transition-all duration-300 btn-hover"
-              aria-label="Previous product"
+              className="w-14 h-14 rounded-full border border-gray-900/10 flex items-center justify-center hover:bg-gray-900 hover:text-white transition-all duration-300 btn-hover"
+              aria-label="Anterior"
             >
               <ArrowRight className="w-5 h-5 rotate-180" />
             </button>
             <button
               onClick={handleNext}
-              className="w-14 h-14 rounded-full border border-solar-dark/10 flex items-center justify-center hover:bg-solar-dark hover:text-white transition-all duration-300 btn-hover"
-              aria-label="Next product"
+              className="w-14 h-14 rounded-full border border-gray-900/10 flex items-center justify-center hover:bg-gray-900 hover:text-white transition-all duration-300 btn-hover"
+              aria-label="Siguiente"
             >
               <ArrowRight className="w-5 h-5" />
             </button>

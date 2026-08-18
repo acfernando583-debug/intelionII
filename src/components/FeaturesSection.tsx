@@ -7,43 +7,43 @@ const features = [
   {
     id: "video",
     type: "video",
-    title: "Your creative canvas.",
+    title: "Tu proyecto, en marcha.",
     video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4"
   },
   {
-    id: "storyboard",
+    id: "almacenamiento",
     type: "card",
     number: "01",
-    title: "Project Storyboard.",
+    title: "Sistemas con Almacenamiento",
     icon: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85",
     items: [
-      "Visualiza cada escena antes de rodar",
-      "Organiza tomas y planos de producción",
-      "Exporta storyboards en alta calidad"
+      "Integración de baterías de respaldo",
+      "Soluciones para continuidad energética",
+      "Optimización del autoconsumo"
     ]
   },
   {
-    id: "critiques",
+    id: "instalacion",
     type: "card",
     number: "02",
-    title: "Smart Critiques.",
+    title: "Instalación y Puesta en Marcha",
     icon: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171741_ed9845ab-f5b2-4018-8ce7-07cc01823522.png&w=1280&q=85",
     items: [
-      "Análisis de IA creativa en segundos",
-      "Notas colaborativas en tiempo real",
-      "Integración con herramientas profesionales"
+      "Integración de inversores y estructuras",
+      "Pruebas, configuración y arranque",
+      "Sistemas conectados a red, híbridos y aislados"
     ]
   },
   {
-    id: "immersion",
+    id: "mantenimiento",
     type: "card",
     number: "03",
-    title: "Immersion Capsule.",
+    title: "Operación y Mantenimiento",
     icon: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171809_f56666dc-c099-4778-ad82-9ad4f209567b.png&w=1280&q=85",
     items: [
-      "Silencia notificaciones automáticamente",
-      "Ambiente sonoro inmersivo",
-      "Sincroniza tu horario de enfoque"
+      "Monitoreo del rendimiento del sistema",
+      "Diagnóstico y optimización",
+      "Soporte técnico especializado"
     ]
   }
 ];
@@ -65,8 +65,8 @@ export function FeaturesSection() {
   const { ref, inView } = useInViewAnimation();
 
   const headerSegments = [
-    { text: "Soluciones de estudio para", className: "text-primary" },
-    { text: "creadores visionarios.", className: "text-gray-500" }
+    { text: "Tecnología confiable para", className: "" },
+    { text: "soluciones eficientes.", className: "text-[#F26522]" }
   ];
 
   return (
@@ -123,7 +123,7 @@ export function FeaturesSection() {
 
                   {/* Title with number */}
                   <div className="flex items-baseline gap-2 mb-4">
-                    <span className="text-primary text-xs font-mono">{feature.number}</span>
+                    <span className="text-[#F26522] text-xs font-mono">{feature.number}</span>
                     <h3 className="text-lg font-normal text-white tracking-tight">{feature.title}</h3>
                   </div>
 
@@ -131,15 +131,15 @@ export function FeaturesSection() {
                   <ul className="space-y-2 mb-6 flex-1">
                     {feature.items!.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-xs text-gray-400">
-                        <Check className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" strokeWidth={2} />
+                        <Check className="w-3.5 h-3.5 text-[#F26522] flex-shrink-0 mt-0.5" strokeWidth={2} />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* Learn more link */}
-                  <button className="inline-flex items-center gap-2 text-sm text-white group-hover:text-primary transition-colors duration-300">
-                    <span>Learn more</span>
+                  <button className="inline-flex items-center gap-2 text-sm text-white group-hover:text-[#F26522] transition-colors duration-300">
+                    <span>Conocer más</span>
                     <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                   </button>
                 </div>

@@ -22,7 +22,7 @@ export function InfoSection() {
 
   const aboutSegments = [
     { text: "Innovando el", className: "font-normal" },
-    { text: "espíritu", className: "text-primary font-serif italic" },
+    { text: "espíritu", className: "text-[#F26522] font-serif italic" },
     { text: "de la energía solar", className: "font-normal" }
   ];
 
@@ -80,7 +80,7 @@ export function InfoSection() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-primary text-[10px] sm:text-xs tracking-widest uppercase">Visual arts</span>
+            <span className="text-[#F26522] text-[10px] sm:text-xs tracking-widest uppercase">Quiénes somos</span>
           </motion.div>
 
           {/* Main heading with WordsPullUpMultiStyle */}
@@ -149,14 +149,14 @@ export function InfoSection() {
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
                     className={`relative h-px flex-1 transition-all duration-500 ${
-                      selectedImage === idx 
-                        ? "bg-primary" 
+                      selectedImage === idx
+                        ? "bg-[#F26522]"
                         : "bg-white/20 hover:bg-white/40"
                     }`}
                   >
                     <span className={`absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full transition-all duration-300 ${
-                      selectedImage === idx 
-                        ? "bg-primary scale-125" 
+                      selectedImage === idx
+                        ? "bg-[#F26522] scale-125"
                         : "bg-white/40 scale-100"
                     }`} />
                   </button>
@@ -171,7 +171,7 @@ export function InfoSection() {
                     onClick={() => setSelectedImage(idx)}
                     className={`relative flex-1 aspect-square rounded-xl overflow-hidden transition-all duration-300 ${
                       selectedImage === idx
-                        ? "ring-1 ring-primary/60"
+                        ? "ring-1 ring-[#F26522]/60"
                         : "opacity-40 hover:opacity-80"
                     }`}
                   >
@@ -182,8 +182,8 @@ export function InfoSection() {
                       loading="lazy"
                     />
                     <div className={`absolute inset-0 transition-opacity duration-300 ${
-                      selectedImage === idx 
-                        ? "bg-primary/10 opacity-100" 
+                      selectedImage === idx
+                        ? "bg-[#F26522]/10 opacity-100"
                         : "bg-black/20 opacity-0 hover:opacity-100"
                     }`} />
                   </button>
@@ -198,7 +198,7 @@ export function InfoSection() {
               onClick={() => setActiveCard("ecosistema")}
               className={`relative rounded-2xl p-6 text-left transition-all duration-300 overflow-hidden group ${
                 activeCard === "ecosistema"
-                  ? "bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30"
+                  ? "bg-gradient-to-br from-[#F26522]/20 to-[#F26522]/10 border border-[#F26522]/30"
                   : "bg-white/5 border border-white/10 hover:bg-white/10"
               }`}
               whileHover={{ y: -5 }}
@@ -206,8 +206,8 @@ export function InfoSection() {
               <div className="relative z-10">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
                   activeCard === "ecosistema"
-                    ? "bg-primary text-black"
-                    : "bg-white/10 text-primary"
+                    ? "bg-[#F26522] text-black"
+                    : "bg-white/10 text-[#F26522]"
                 }`}>
                   <Sparkles className="w-7 h-7" />
                 </div>
@@ -220,7 +220,7 @@ export function InfoSection() {
               onClick={() => setActiveCard("compromiso")}
               className={`relative rounded-2xl p-6 text-left transition-all duration-300 overflow-hidden group ${
                 activeCard === "compromiso"
-                  ? "bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30"
+                  ? "bg-gradient-to-br from-[#F26522]/20 to-[#F26522]/10 border border-[#F26522]/30"
                   : "bg-white/5 border border-white/10 hover:bg-white/10"
               }`}
               whileHover={{ y: -5 }}
@@ -228,8 +228,8 @@ export function InfoSection() {
               <div className="relative z-10">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
                   activeCard === "compromiso"
-                    ? "bg-primary text-black"
-                    : "bg-white/10 text-primary"
+                    ? "bg-[#F26522] text-black"
+                    : "bg-white/10 text-[#F26522]"
                 }`}>
                   <Wand2 className="w-7 h-7" />
                 </div>
@@ -245,33 +245,33 @@ export function InfoSection() {
             whileHover={{ y: -5 }}
           >
             <div className="relative z-10 flex items-start gap-5">
-              <div className="w-24 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center overflow-hidden border border-white/10 flex-shrink-0">
-                <Zap className="w-8 h-8 text-primary" />
+              <div className="w-24 h-16 rounded-xl bg-gradient-to-br from-[#F26522]/20 to-[#F26522]/10 flex items-center justify-center overflow-hidden border border-white/10 flex-shrink-0">
+                <Zap className="w-8 h-8 text-[#F26522]" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-2">
                   <h4 className="text-white font-semibold text-base tracking-tight">Servicio Premium</h4>
-                  <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-medium tracking-wider uppercase">Nuevo</span>
+                  <span className="px-2 py-0.5 rounded-full bg-[#F26522]/20 text-[#F26522] text-[10px] font-medium tracking-wider uppercase">Nuevo</span>
                 </div>
                 <p className="text-white/60 text-sm leading-relaxed mb-3">
                   Atención personalizada y cercana con seguimiento 24/7. Nuestro equipo de expertos le acompaña en cada etapa del proyecto, desde el diagnóstico inicial hasta el monitoreo continuo.
                 </p>
                 <div className="flex items-center gap-4 text-xs text-white/40">
                   <span className="flex items-center gap-1.5">
-                    <Shield className="w-3.5 h-3.5 text-primary" />
+                    <Shield className="w-3.5 h-3.5 text-[#F26522]" />
                     Garantía extendida
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Globe className="w-3.5 h-3.5 text-primary" />
+                    <Globe className="w-3.5 h-3.5 text-[#F26522]" />
                     Cobertura nacional
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-primary" />
+                    <Award className="w-3.5 h-3.5 text-[#F26522]" />
                     Certificado
                   </span>
                 </div>
               </div>
-              <button className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-all duration-300 flex-shrink-0">
+              <button className="w-10 h-10 rounded-full bg-[#F26522]/20 flex items-center justify-center text-[#F26522] hover:bg-[#F26522] hover:text-black transition-all duration-300 flex-shrink-0">
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

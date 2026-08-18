@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 import { useParallax } from "../hooks/useParallax";
+import { Shader, Swirl, FilmGrain } from "shaders/react";
 
 const BACKERS = [
   { name: "Risen", style: { fontFamily: "Arial, sans-serif", fontWeight: 700, letterSpacing: "0.02em", fontSize: "16px" } },
@@ -14,6 +16,7 @@ const BACKERS = [
 export function BackedBySection() {
   const { ref, inView } = useInViewAnimation();
   const parallaxStyle = useParallax(0.1);
+  const [shaderAvailable, setShaderAvailable] = useState(true);
 
   return (
     <section ref={ref} className="bg-[#F5F5F5] px-6 py-20 relative overflow-hidden">
@@ -28,6 +31,16 @@ export function BackedBySection() {
           opacity: 0.6,
         }}
       />
+
+      {shaderAvailable && (
+        <Shader
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          onUnavailable={() => setShaderAvailable(false)}
+        >
+          <Swirl colorA="#ffffff" colorB="#f0f0f0" detail={1.7} />
+          <FilmGrain strength={0.05} />
+        </Shader>
+      )}
 
       <div className="max-w-[88rem] mx-auto relative">
         <div className="text-center mb-14">

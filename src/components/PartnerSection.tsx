@@ -1,5 +1,5 @@
 import { Leaf } from "lucide-react";
-import { Button } from "./HeroParts";
+import { CtaButton } from "./Buttons";
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 
 export function PartnerSection() {
@@ -31,15 +31,10 @@ export function PartnerSection() {
             Analizamos su necesidad energética y diseñamos la solución que mejor se adapte a su proyecto. Energía solar inteligente para hogares, edificios e industria.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="primary" arrow className="mx-auto">
-              Solicitar diagnóstico gratuito
-            </Button>
-            <Button
-              variant="secondary"
-              className="mx-auto"
-            >
+            <CtaButton text="Solicitar diagnóstico gratuito" variant="orange" />
+            <button className="border border-gray-900/15 text-gray-900 hover:bg-white text-[13px] sm:text-[14px] font-medium rounded-full px-6 py-3 transition-colors duration-300">
               Llamar ahora
-            </Button>
+            </button>
           </div>
           <div className="mt-12 flex items-center justify-center gap-2 text-gray-500">
             <Leaf className="w-4 h-4" strokeWidth={1.75} />

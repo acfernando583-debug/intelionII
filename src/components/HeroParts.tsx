@@ -33,7 +33,7 @@ export function HeroSection() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
+           src="/videos/1.mp4"
         />
 
         {/* Noise overlay */}
@@ -48,7 +48,7 @@ export function HeroSection() {
             {/* Left column - Heading */}
             <div className="col-span-12 lg:col-span-8">
               <h1
-                className="text-[26vw] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw] font-medium leading-[0.85] tracking-[-0.07em] relative"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.05] tracking-[-0.03em] relative"
                 style={{ color: "#E1E0CC" }}
               >
                 <WordsPullUpMultiStyle segments={heroHeadlineSegments} />
@@ -58,7 +58,7 @@ export function HeroSection() {
             {/* Right column - Description + CTA */}
             <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
               <motion.p
-                className="text-primary/70 text-xs sm:text-sm md:text-base leading-[1.2] max-w-md"
+                className="text-white/90 text-xs sm:text-sm md:text-base leading-[1.2] max-w-md"
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

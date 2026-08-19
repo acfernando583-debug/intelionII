@@ -1,12 +1,12 @@
-import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroParts";
-import { InfoSection } from "./components/InfoSection";
-import { FeaturesSection } from "./components/FeaturesSection";
-import { GallerySection } from "./components/GallerySection";
+import { AboutSection } from "./components/AboutSection";
+import { CaseStudiesSection } from "./components/CaseStudiesSection";
 import { ServicesSection } from "./components/ServicesSection";
 import { BackedBySection } from "./components/BackedBySection";
 import { UseCasesSection } from "./components/UseCasesSection";
 import { PricingSection } from "./components/PricingSection";
+import { FeaturesSection } from "./components/FeaturesSection";
+import { GallerySection } from "./components/GallerySection";
 import { TestimonialCarousel } from "./components/TestimonialCarousel";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { PartnerSection } from "./components/PartnerSection";
@@ -16,16 +16,16 @@ import { BottomNav } from "./components/BottomNav";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black">
-      <Navbar />
+    <div className="min-h-screen bg-white">
       <HeroSection />
-      <InfoSection />
-      <FeaturesSection />
-      <GallerySection />
+      <AboutSection />
+      <CaseStudiesSection />
       <ServicesSection />
       <BackedBySection />
       <UseCasesSection />
       <PricingSection />
+      <FeaturesSection />
+      <GallerySection />
       <TestimonialCarousel />
       <ProjectsSection />
       <PartnerSection />
